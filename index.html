@@ -45,7 +45,66 @@
   </style>
 </head>
 <body>
+<!-- 💡 画面を邪魔しないヘルプボタン -->
+<button id="BTN_HELP" style="position: fixed; top: 15px; right: 15px; width: 40px; height: 40px; border-radius: 50%; background: #4a5568; color: white; border: none; font-size: 18px; cursor: pointer; z-index: 1000; padding: 0;">ℹ️</button>
 
+<!-- 💡 クソ長・完全網羅版ルール画面（普段は非表示） -->
+<div id="HELP_MODAL" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box;">
+  <div class="card" style="max-width: 500px; width: 100%; max-height: 85vh; overflow-y: auto; margin: 0; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.2); padding: 25px;">
+    <h2 style="text-align: center; margin-top: 0; font-size: 20px;">🏆 ベット対戦ゲーム・完全ガイド</h2>
+    <p style="font-size: 13px; color: #718096; text-align: center; margin-bottom: 20px;">対戦者の勝敗を予想してチップを賭け合うゲームです。熟読してください。</p>
+    
+    <div style="font-size: 13px; line-height: 1.6; color: #4a5568;">
+      
+      <h3 style="border-left: 4px solid #4a5568; padding-left: 8px; margin: 15px 0 8px 0; font-size: 14px;">🎲 1. 賭け対戦の基本ルール＆オッズの仕組み</h3>
+      <ul>
+        <li><b>役割分担：</b>「対戦者（2人）」と、それ以外の「賭け手（全員）」に分かれます。</li>
+        <li><b>賭け方の基本：</b>賭け手はどちらが勝つかを予想し、片方の対戦者にのみチップを賭けます。</li>
+        <li><b>対戦者の制限：</b>対戦者本人は、自分が戦う試合の賭けに参加することはできません。</li>
+        <li><b>チップの扱い：</b>賭け金として支払ったチップは勝敗に関係なく戻りません。的中時のみ払い戻しがあります。</li>
+        <li><b>対戦者の報酬：</b>勝った対戦者は、相手（負けた側）に賭けられた総額に応じてチップを獲得できます。</li>
+        <li><b>オッズの決まり方：</b>全体の賭け金の中で、自分が何％賭けているか（貢献度）によって個人の倍率が決まります。人気な方はオッズが小さくなり、少ない方はオッズが大きくなります。</li>
+      </ul>
+      
+      <div style="background: #fff5f5; border: 1px solid #fed7d7; padding: 10px; border-radius: 6px; margin: 10px 0; color: #c53030;">
+        <b>⚠️ 【超重要】片側ノーベット（賭け数0）の禁止</b><br>
+        片方の対戦者にしか賭けが入らず、もう片方の賭け数が「0」になった場合、勝った対戦者もチップをもらえず、払い戻しも一切ありません。全員チップをドブに捨てるだけ（全員可哀想な状態）になるので、必ず両方に賭けが入るようバランスを見てベットしてください。
+      </div>
+
+      <h3 style="border-left: 4px solid #4a5568; padding-left: 8px; margin: 20px 0 8px 0; font-size: 14px;">🎮 2. ゲームの進行手順</h3>
+      <p style="font-weight: bold; margin-bottom: 4px; color: #dd6b20;">【運営者側の手順】</p>
+      <ol style="margin-top: 0; padding-left: 20px;">
+        <li><b>部屋の作成：</b>最上部で名前と部屋IDを入力し「部屋に参加する」を押します。</li>
+        <li><b>運営権限の有効化：</b>画面下部で運営用パスワードを入力してログインします。</li>
+        <li><b>対戦カードの設定：</b>タイトル欄に「誰 vs 誰」（例: 田中 vs 鈴木）を入力して試合をリリースします。</li>
+        <li><b>共有：</b>作成した「部屋ID」を参加メンバーに共有します。</li>
+        <li><b>締め切り：</b>全員が「確定」したこと、不正がないかを確認し受付を締め切ります。※妨害プレイヤーや違反者は締め切り前に運営権限でキックしてください。</li>
+        <li><b>勝者選択：</b>試合終了後、運営者は画面から勝者を選択し「勝者確定」を押します。絶対に押し間違えないでください。</li>
+      </ol>
+
+      <p style="font-weight: bold; margin-bottom: 4px; color: #3182ce;">【一般参加者（賭け手）の手順】</p>
+      <ol style="margin-top: 0; padding-left: 20px;">
+        <li><b>部屋への参加：</b>教えてもらった「部屋ID」と「自分の名前」を入力して部屋に参加します。</li>
+        <li><b>ポイントの設定：</b>賭けたいポイント数を決め、「賭けポイント設定」欄に入力しておきます。</li>
+        <li><b>ベット：</b>試合一覧で、自分が賭けたい側のボタン（🔴Aに賭ける / 🔵Bに賭ける）を押して賭けます。</li>
+        <li><b>賭け金の追加：</b>さらに上乗せしたい場合は、設定ポイントを変えてから、もう一度同じボタン（🔴Aに追加 / 🔵Bに追加）を押せば何回でもいっぱい賭けられます。</li>
+        <li><b>修正・変更：</b>賭ける側を逆にしたい、賭け金を変えたい場合は、一度「↩️ 賭けを取り消す」を押してリセットしてください。※賭けている間、逆側は「🔒ロック」されます。</li>
+        <li><b>確定（重要）：</b>もう変更しないと決めたら、最後に必ず「🔒 賭けを確定して準備完了」を押してください。全員が確定しないと運営は受付を締め切れません。必ず押し忘れないでください。</li>
+        <li><b>結果確認：</b>運営が勝者を確定するとポイントが自動計算されます。「参加者ポイントランキング」もリアルタイム更新されます。</li>
+      </ol>
+
+      <h3 style="border-left: 4px solid #4a5568; padding-left: 8px; margin: 20px 0 8px 0; font-size: 14px;">🚨 3. 絶対厳守の注意事項・禁止事項</h3>
+      <ul>
+        <li><b>名前に関するルール：</b>紛らわしい名前、不適切な変な名前は禁止です。別の部屋IDに行くとチップがリセットされるため、「一度追加した名前」をずっと使い続けてログイン（名前の固定）することを強く推奨します。</li>
+        <li><b>データ消失時の対処法：</b>ブラウザ再起動等でログアウトされた場合は、焦らず「全く同じ部屋ID」と「全く同じ名前」を入力して参加し直してください。これまでのチップを持った状態ではじめることができます。</li>
+        <li><b>運営パスワードの管理：</b>悪用防止のため、運営用パスワードは絶対に他の人に漏らさないでください。</li>
+        <li><b>借金（マイナスベット）の禁止：</b>所持ポイントを超えて借金状態で賭けることはルール上「一律禁止」とします。手持ちの範囲内で健全に遊んでください。</li>
+      </ul>
+
+    </div>
+    <button id="BTN_CLOSE_HELP" style="background: #718096; margin-top: 20px;">閉じる</button>
+  </div>
+</div>
 <div class="container">
   <h1 style="text-align: center;">🎲 ギャンブル計算</h1>
 
@@ -122,7 +181,8 @@ window.onload = () => {
   document.getElementById("BTN_JOIN").onclick = joinRoom;
   document.getElementById("BTN_ADMIN_LOGIN").onclick = loginAdmin;
   document.getElementById("BTN_CREATE_MATCH").onclick = createMatch;
-  
+  document.getElementById("BTN_HELP").onclick = () => document.getElementById("HELP_MODAL").style.display = "flex";
+document.getElementById("HELP_MODAL").onclick = (e) => { if(e.target.id === "HELP_MODAL" || e.target.id === "BTN_CLOSE_HELP") document.getElementById("HELP_MODAL").style.display = "none"; };
   document.getElementById("BTN_TOGGLE_HISTORY").onclick = () => {
     showHistory = !showHistory;
     const historyDiv = document.getElementById("HISTORY_MATCHES_LIST");
